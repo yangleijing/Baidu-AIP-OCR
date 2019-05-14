@@ -6,8 +6,11 @@
 如果想看百度关于图片识别C# Sdk 请链接 http://ai.baidu.com/docs#/OCR-Csharp-SDK/top
 
 3、 将baiduOcr.tlb 加入到delphi 中， component-> import component->import a type Library中 会生成一个 BaiduOCR_TLB.Pas
+
 4、引入 BaiduOCR_TLB 到项目中
+
 5、调用接口函数
+
 function GetBaiduOCRInf: Baidu_OcrInf;
 var
  Baidu_OcrImp: _Baidu_OcrImp;
@@ -18,6 +21,7 @@ begin
   end;
   Result:= (Baidu_OcrImp as Baidu_OcrInf);
 end;
+
  6、百度 的key 和 SECRET_KEY 赋值    
  //请输入baidu API_KEY  必填项目
   GetBaiduOCRInf.Api_KEY:= 'baidu API_KEY';
