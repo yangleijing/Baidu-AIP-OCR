@@ -32,3 +32,4 @@ end;
   GetBaiduOCRInf.SECRET_KEY:= 'baidu SECRET_KEY';
   
 7、调用 BaiduOCR_TLB 中的函数
+![Image text](银行卡.png)
