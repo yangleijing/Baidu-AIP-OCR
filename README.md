@@ -24,7 +24,12 @@ end;
 
  6、百度 的key 和 SECRET_KEY 赋值    
  //请输入baidu API_KEY  必填项目
+ 
   GetBaiduOCRInf.Api_KEY:= 'baidu API_KEY';
+  
    //请输入baidu SECRET_KEY 必填项目
+   
   GetBaiduOCRInf.SECRET_KEY:= 'baidu SECRET_KEY';
+  
 7、调用 BaiduOCR_TLB 中的函数
+G:\GitHub_ProJect\Baidu-AIP-OCR\QQ截图20190514100515.png
