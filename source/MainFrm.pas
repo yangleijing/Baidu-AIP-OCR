@@ -1,0 +1,198 @@
+unit MainFrm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, BaiduOCR_TLB, Vcl.ExtCtrls,
+  cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer,
+  cxEdit, cxImage;
+
+type
+  TForm1 = class(TForm)
+    dlg1: TOpenDialog;
+    pnl1: TPanel;
+    btn1: TButton;
+    btn2: TButton;
+    btn3: TButton;
+    btn4: TButton;
+    pnlClient: TPanel;
+    mmo1: TMemo;
+    cxImage1: TcxImage;
+    Button1: TButton;
+    btn5: TButton;
+    btn6: TButton;
+    btn7: TButton;
+    btn8: TButton;
+    procedure btn1Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
+    procedure btn3Click(Sender: TObject);
+    procedure btn4Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure btn5Click(Sender: TObject);
+    procedure btn6Click(Sender: TObject);
+    procedure btn7Click(Sender: TObject);
+    procedure btn8Click(Sender: TObject);
+  private
+    { Private declarations }
+    function GetBaiduOCRInf:Baidu_OcrInf;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btn1Click(Sender: TObject);
+var
+  FileName, sResult: string;
+begin
+  if Self.dlg1.Execute then
+  begin
+    FileName:= Self.dlg1.FileName;
+    mmo1.Lines.Add('图片地址'+FileName);
+    cxImage1.Picture.LoadFromFile(FileName);
+    sResult:= GetBaiduOCRInf.IDCardFront(FileName);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  end;
+end;
+
+procedure TForm1.btn2Click(Sender: TObject);
+var
+  FileName, sResult: string;
+begin
+  if Self.dlg1.Execute then
+  begin
+    FileName:= Self.dlg1.FileName;
+    mmo1.Lines.Add('图片地址'+FileName);
+    cxImage1.Picture.LoadFromFile(FileName);
+    sResult:= GetBaiduOCRInf.IDCardBack(FileName);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  end;
+end;
+
+procedure TForm1.btn3Click(Sender: TObject);
+var
+  FileName, sResult: string;
+begin
+  if Self.dlg1.Execute then
+  begin
+    FileName:= Self.dlg1.FileName;
+    mmo1.Lines.Add('图片地址'+FileName);
+    cxImage1.Picture.LoadFromFile(FileName);
+    sResult:= GetBaiduOCRInf.BankCard(FileName);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  end;
+end;
+
+procedure TForm1.btn4Click(Sender: TObject);
+var
+  FileName, sResult: string;
+begin
+   if Self.dlg1.Execute then
+  begin
+    FileName:= Self.dlg1.FileName;
+    cxImage1.Picture.LoadFromFile(FileName);
+    mmo1.Lines.Add('图片地址'+FileName);
+    sResult:= GetBaiduOCRInf.DrivingLicense(FileName);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  end;
+end;
+
+procedure TForm1.btn5Click(Sender: TObject);
+var
+  FileName, sResult: string;
+begin
+  if Self.dlg1.Execute then
+  begin
+    FileName:= Self.dlg1.FileName;
+    cxImage1.Picture.LoadFromFile(FileName);
+    mmo1.Lines.Add('图片地址'+FileName);
+    sResult:= GetBaiduOCRInf.LicensePlate(FileName);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  end;
+end;
+
+procedure TForm1.btn6Click(Sender: TObject);
+var
+  FileName, sResult: string;
+begin
+  if Self.dlg1.Execute then
+  begin
+    FileName:= Self.dlg1.FileName;
+    cxImage1.Picture.LoadFromFile(FileName);
+    mmo1.Lines.Add('图片地址'+FileName);
+    sResult:= GetBaiduOCRInf.GeneralBasic(FileName);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  end;
+end;
+
+procedure TForm1.btn7Click(Sender: TObject);
+var
+  sUrl,sResult: string;
+  sLocalPath: string;
+begin
+  //sUrl:= 'https://file.juzimi.com/shouxiepic/jpzimo4.jpg';
+  sUrl:= 'https://file.juzimi.com/shouxiepic/jozdml2.jpg';//
+  sLocalPath:= 'D:\XETest\百度SDK文字识别\bin\demo\jozdml2.jpg';
+  mmo1.Lines.Add('图片地址:'+sUrl);
+  cxImage1.Picture.LoadFromFile(sLocalPath);
+   sResult:= GetBaiduOCRInf.GeneralBasicURl(sUrl);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  //
+end;
+
+procedure TForm1.btn8Click(Sender: TObject);
+var
+  FileName, sResult: string;
+begin
+  if Self.dlg1.Execute then
+  begin
+    FileName:= Self.dlg1.FileName;
+    cxImage1.Picture.LoadFromFile(FileName);
+    mmo1.Lines.Add('图片地址'+FileName);
+    sResult:= GetBaiduOCRInf.AccurateBasic(FileName);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  end;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  FileName, sResult: string;
+begin
+  if Self.dlg1.Execute then
+  begin
+    FileName:= Self.dlg1.FileName;
+    cxImage1.Picture.LoadFromFile(FileName);
+    mmo1.Lines.Add('图片地址'+FileName);
+    sResult:= GetBaiduOCRInf.VehicleLicense(FileName);
+    mmo1.Lines.Add('返回结果:'+sResult);
+  end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  GetBaiduOCRInf.App_ID:= '';
+  //请输入baidu API_KEY  必填项目
+  GetBaiduOCRInf.Api_KEY:= 'baidu API_KEY';
+   //请输入baidu SECRET_KEY 必填项目
+  GetBaiduOCRInf.SECRET_KEY:= 'baidu SECRET_KEY';
+end;
+
+function TForm1.GetBaiduOCRInf: Baidu_OcrInf;
+var
+ Baidu_OcrImp: _Baidu_OcrImp;
+begin
+  if not Assigned(Baidu_OcrImp) then
+  begin
+    Baidu_OcrImp:= CoBaidu_OcrImp.Create;
+  end;
+  Result:= (Baidu_OcrImp as Baidu_OcrInf);
+end;
+
+end.
