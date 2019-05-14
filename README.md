@@ -33,3 +33,5 @@ end;
   
 7、调用 BaiduOCR_TLB 中的函数
 ![Image text](银行卡.png)
+![Image text](QQ截图20190514100515.png)
+
