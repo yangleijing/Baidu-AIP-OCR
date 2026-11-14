@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'Form1'
+  Caption = #30334#24230#25991#23383#35782#21035#28436#31034
   ClientHeight = 460
   ClientWidth = 750
   Color = clBtnFace
@@ -119,7 +119,7 @@ object Form1: TForm1
       Width = 474
       Height = 337
       Lines.Strings = (
-        'mmo1')
+        #35782#21035#32467#26524#23558#26174#31034#22312#36825#37324)
       ScrollBars = ssVertical
       TabOrder = 0
     end
@@ -133,6 +133,10 @@ object Form1: TForm1
     end
   end
   object dlg1: TOpenDialog
+    Filter = 
+      #22270#29255#25991#20214'|*.jpg;*.jpeg;*.png;*.bmp;*.gif|'#25152#26377#25991#20214'|*.*'
+    FilterIndex = 1
+    Title = #36873#25321#35201#35782#21035#30340#22270#29255
     Left = 600
     Top = 32
   end
