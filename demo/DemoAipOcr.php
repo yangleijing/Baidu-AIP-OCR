@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-	<title></title>
+	<meta charset="utf-8">
+	<title>百度文字识别演示</title>
 </head>
 <body>
-
+<h1>百度文字识别演示</h1>
+<p>以下输出为身份证识别接口返回的 JSON 结果（演示用途）。</p>
 
 <?php
 //如果用JSON格式则要使用text/html，不能使用text/xml
@@ -25,7 +27,9 @@ $aipOcr = new AipOcr(APP_ID, API_KEY, SECRET_KEY);
  // echo urldecode(json_encode($aipOcr->idcard(file_get_contents('idcard.jpg'), true),JSON_PRETTY_PRINT));
  $str= json_encode($aipOcr->idcard(file_get_contents('idcard.jpg'), true),JSON_PRETTY_PRINT);
   preg_replace("#\\\u([0-9a-f]{4})#ie", "iconv('UCS-2LE', 'UTF-8', pack('H4', '\\1'))", $str);
+ echo '<pre>';
  var_dump($str);
+ echo '</pre>';
 
 // 银行卡识别 
 // echo json_encode($aipOcr->bankcard(file_get_contents('bankcard.jpg')));

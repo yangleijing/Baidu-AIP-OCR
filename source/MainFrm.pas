@@ -55,10 +55,10 @@ begin
   if Self.dlg1.Execute then
   begin
     FileName:= Self.dlg1.FileName;
-    mmo1.Lines.Add('图片地址'+FileName);
+    mmo1.Lines.Add('图片地址：'+FileName);
     cxImage1.Picture.LoadFromFile(FileName);
     sResult:= GetBaiduOCRInf.IDCardFront(FileName);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   end;
 end;
 
@@ -69,10 +69,10 @@ begin
   if Self.dlg1.Execute then
   begin
     FileName:= Self.dlg1.FileName;
-    mmo1.Lines.Add('图片地址'+FileName);
+    mmo1.Lines.Add('图片地址：'+FileName);
     cxImage1.Picture.LoadFromFile(FileName);
     sResult:= GetBaiduOCRInf.IDCardBack(FileName);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   end;
 end;
 
@@ -83,10 +83,10 @@ begin
   if Self.dlg1.Execute then
   begin
     FileName:= Self.dlg1.FileName;
-    mmo1.Lines.Add('图片地址'+FileName);
+    mmo1.Lines.Add('图片地址：'+FileName);
     cxImage1.Picture.LoadFromFile(FileName);
     sResult:= GetBaiduOCRInf.BankCard(FileName);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   end;
 end;
 
@@ -98,9 +98,9 @@ begin
   begin
     FileName:= Self.dlg1.FileName;
     cxImage1.Picture.LoadFromFile(FileName);
-    mmo1.Lines.Add('图片地址'+FileName);
+    mmo1.Lines.Add('图片地址：'+FileName);
     sResult:= GetBaiduOCRInf.DrivingLicense(FileName);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   end;
 end;
 
@@ -112,9 +112,9 @@ begin
   begin
     FileName:= Self.dlg1.FileName;
     cxImage1.Picture.LoadFromFile(FileName);
-    mmo1.Lines.Add('图片地址'+FileName);
+    mmo1.Lines.Add('图片地址：'+FileName);
     sResult:= GetBaiduOCRInf.LicensePlate(FileName);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   end;
 end;
 
@@ -126,9 +126,9 @@ begin
   begin
     FileName:= Self.dlg1.FileName;
     cxImage1.Picture.LoadFromFile(FileName);
-    mmo1.Lines.Add('图片地址'+FileName);
+    mmo1.Lines.Add('图片地址：'+FileName);
     sResult:= GetBaiduOCRInf.GeneralBasic(FileName);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   end;
 end;
 
@@ -140,10 +140,10 @@ begin
   //sUrl:= 'https://file.juzimi.com/shouxiepic/jpzimo4.jpg';
   sUrl:= 'https://file.juzimi.com/shouxiepic/jozdml2.jpg';//
   sLocalPath:= 'D:\XETest\百度SDK文字识别\bin\demo\jozdml2.jpg';
-  mmo1.Lines.Add('图片地址:'+sUrl);
+  mmo1.Lines.Add('图片地址：'+sUrl);
   cxImage1.Picture.LoadFromFile(sLocalPath);
    sResult:= GetBaiduOCRInf.GeneralBasicURl(sUrl);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   //
 end;
 
@@ -155,9 +155,9 @@ begin
   begin
     FileName:= Self.dlg1.FileName;
     cxImage1.Picture.LoadFromFile(FileName);
-    mmo1.Lines.Add('图片地址'+FileName);
+    mmo1.Lines.Add('图片地址：'+FileName);
     sResult:= GetBaiduOCRInf.AccurateBasic(FileName);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   end;
 end;
 
@@ -169,14 +169,16 @@ begin
   begin
     FileName:= Self.dlg1.FileName;
     cxImage1.Picture.LoadFromFile(FileName);
-    mmo1.Lines.Add('图片地址'+FileName);
+    mmo1.Lines.Add('图片地址：'+FileName);
     sResult:= GetBaiduOCRInf.VehicleLicense(FileName);
-    mmo1.Lines.Add('返回结果:'+sResult);
+    mmo1.Lines.Add('返回结果：'+sResult);
   end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  Application.Title := '百度文字识别演示';
+  Caption := '百度文字识别演示';
   GetBaiduOCRInf.App_ID:= '';
   //请输入baidu API_KEY  必填项目
   GetBaiduOCRInf.Api_KEY:= 'baidu API_KEY';
